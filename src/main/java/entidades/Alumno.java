@@ -4,23 +4,22 @@ import java.io.Serializable;
 import jakarta.persistence.*;
 
 @Entity
+@Table(name = "alumnos")
 public class Alumno implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_alumno")
     private int idAlumno;
+
+    @Column(name = "nombre_alumno")
     private String nombreAlumno;
+
+    @Lob
+    @Column(name = "foto", columnDefinition = "MEDIUMBLOB")
     private byte[] foto;
 
-    public byte[] getFoto() {
-        return foto;
-    }
-
-    public void setFoto(byte[] foto) {
-        this.foto = foto;
-    }
 
     public Alumno() {}
 
@@ -45,8 +44,16 @@ public class Alumno implements Serializable {
         this.nombreAlumno = nombreAlumno;
     }
 
-    public String toString() {
-        return this.idAlumno+" - "+this.nombreAlumno;
+    public byte[] getFoto() {
+        return foto;
     }
 
+    public void setFoto(byte[] foto) {
+        this.foto = foto;
+    }
+
+    @Override
+    public String toString() {
+        return this.idAlumno + " - " + this.nombreAlumno;
+    }
 }

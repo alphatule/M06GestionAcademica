@@ -2,6 +2,7 @@ package test;
 
 import dao.AcademiaDAO;
 import dao.AcademiaDAOImplJDBC;
+import dao.DAOFactoryProvider;
 
 public class BorrarHelper {
 
@@ -10,7 +11,7 @@ public class BorrarHelper {
     // Constructor
     public BorrarHelper() {
         System.out.println("Creando el DAO...");
-        dao = new AcademiaDAOImplJDBC();
+        dao = DAOFactoryProvider.getFactory().createAcademiaDAO();
     }
 
     /*

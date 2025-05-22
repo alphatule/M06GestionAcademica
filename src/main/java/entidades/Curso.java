@@ -1,20 +1,19 @@
 package entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
+import jakarta.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name = "cursos")
 public class Curso implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_curso")
     private int idCurso;
+
+    @Column(name = "nombre_curso")
     private String nombreCurso;
 
     public Curso() {}

@@ -9,7 +9,7 @@ import java.util.Collection;
 import java.util.GregorianCalendar;
 
 import dao.AcademiaDAO;
-import dao.AcademiaDAOImplJDBC;
+import dao.DAOFactoryProvider;
 import entidades.Alumno;
 import entidades.Curso;
 import entidades.Matricula;
@@ -21,7 +21,7 @@ public class InsertarHelper {
     // Constructor
     public InsertarHelper() {
         System.out.println("Creando el DAO...");
-        dao=new AcademiaDAOImplJDBC();
+        dao = DAOFactoryProvider.getFactory().createAcademiaDAO();
     }
 
     /*

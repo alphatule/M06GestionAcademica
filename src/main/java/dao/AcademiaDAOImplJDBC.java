@@ -392,7 +392,7 @@ public class AcademiaDAOImplJDBC implements AcademiaDAO {
             ps.setInt(1, matricula.getAlumno().getIdAlumno());
             ps.setInt(2, matricula.getCurso().getIdCurso());
             ps.setDate(3, new java.sql.Date(matricula.getFechaInicio().getTime()));
-            ps.setInt(4, matricula.getId());
+            ps.setLong(4, matricula.getId());
             filasAfectadas = ps.executeUpdate();
             ps.close();
         } catch (SQLException e) {
