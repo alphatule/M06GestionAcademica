@@ -1,11 +1,15 @@
 package entidades;
 
 import java.io.Serializable;
+import jakarta.persistence.*;
 
+@Entity
 public class Alumno implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idAlumno;
     private String nombreAlumno;
     private byte[] foto;

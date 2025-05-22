@@ -1,14 +1,22 @@
 package entidades;
 
+import jakarta.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
+@Entity
 public class Matricula implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    @ManyToOne
+    @JoinColumn(name = "alumno_id_alumno")
     private Alumno alumno;
+    @ManyToOne
+    @JoinColumn(name = "curso_id_curso")
     private Curso curso;
     private Date fechaInicio;
 
